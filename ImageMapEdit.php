@@ -21,7 +21,7 @@ $wgAutoloadClasses['ImageMapEdit'] = __DIR__ . '/ImageMapEdit.class.php';
 
 $aResourceModuleTemplate = array (
 	'localBasePath' => __DIR__ . '/resources',
-	'remoteExtPath' => 'BlueSpiceDistribution/ImageMapEdit/resources'
+	'remoteExtPath' => 'ImageMapEdit/resources'
 );
 
 $wgResourceModules['ext.imagemapedit'] = array (

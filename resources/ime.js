@@ -13,26 +13,26 @@
 	Constants
 */
 
-var IME_TEMPLATE = mw.config.get( 'wgScriptPath' ) + '/extensions/BlueSpiceDistribution/ImageMapEdit/includes/template.php';
-var IME_TRANSLATIONS = mw.config.get( 'wgScriptPath' ) + '/extensions/BlueSpiceDistribution/ImageMapEdit/includes/translations.php?lang=' + mw.config.get( 'wgUserLanguage' );
+var IME_TEMPLATE = mw.config.get( 'wgScriptPath' ) + '/extensions/ImageMapEdit/includes/template.php';
+var IME_TRANSLATIONS = mw.config.get( 'wgScriptPath' ) + '/extensions/ImageMapEdit/includes/translations.php?lang=' + mw.config.get( 'wgUserLanguage' );
 
 // Scripts to create the circle and polygon images
-var IME_CIRCLESCRIPT = mw.config.get( 'wgScriptPath' ) + '/extensions/BlueSpiceDistribution/ImageMapEdit/includes/circle.php';
-var IME_POLYSCRIPT = mw.config.get( 'wgScriptPath' ) + '/extensions/BlueSpiceDistribution/ImageMapEdit/includes/poly.php';
+var IME_CIRCLESCRIPT = mw.config.get( 'wgScriptPath' ) + '/extensions/ImageMapEdit/includes/circle.php';
+var IME_POLYSCRIPT = mw.config.get( 'wgScriptPath' ) + '/extensions/ImageMapEdit/includes/poly.php';
 
 /*
 	Imports
 */
 
 // Load HTML form code for ImageMapEdit
-importScriptURI(IME_TEMPLATE);
+mw.loader.load(IME_TEMPLATE);
 
 // Default error message, will be overwritten if translation is loaded
 ime_translations = new Array();
 ime_translations['error_imagenotfound'] = 'ImageMapEdit: Could not find image in page structure.';
 // Container for translations
 // Load translations
-importScriptURI(IME_TRANSLATIONS);
+mw.loader.load(IME_TRANSLATIONS);
 
 /*
 	Global variables
