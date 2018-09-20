@@ -10,6 +10,7 @@ $wgExtensionCredits['parserhook'][] = [
 	'descriptionmsg' => 'imagemapedit-extension-description',
 	'author' => ['Marc Reymann', 'Peter Schlömer', 'Tobias Weichart' ],
 	'version' => '2.23.2',
+	'license-name' => 'GPL-3.0-only',
 ];
 if ( !defined( 'MEDIAWIKI' ) ) {
 	exit;
