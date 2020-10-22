@@ -48,7 +48,7 @@ var ime_scale;
 */
 $(document).ready(function(){
 	// Determine whether we are on an image page. Namespace must be 6 and action view
-	if ( mw.config.get( 'wgNamespaceNumber' ) == 6 && wgAction == 'view' ) {
+	if ( mw.config.get( 'wgNamespaceNumber' ) == 6 && mw.config.get( 'wgAction' ) == 'view' ) {
 		// If we can a div with id file, we initialize
 		if (document.getElementById('file')) {
 			ime_init1();
