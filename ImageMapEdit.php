@@ -33,5 +33,7 @@ $wgResourceModules['ext.imagemapedit'] = array (
 
 unset( $aResoureModuleTemplate );
 
+$GLOBALS['imeFileTypeList'] = [ 'png', 'gif', 'jpg', 'jpeg' ];
+
 $wgHooks['OutputPageBeforeHTML'][] = 'ImageMapEdit::onOutputPageBeforeHTML';
 $wgHooks['BeforePageDisplay'][] = 'ImageMapEdit::onBeforePageDisplay';
