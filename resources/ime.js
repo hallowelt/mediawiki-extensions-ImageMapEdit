@@ -430,7 +430,7 @@ function ime_updateResult() {
 		else if (ime_areas[i].shape=='poly') {
 			s = coords.points.join(' ');
 		}
-		result.push(ime_areas[i].shape + ' ' + s + (((ime_areas[i].link).match(/(http(s)?:\/\/.)?(www.)?[-a-zA-Z0-9@:%._+#=]{2,256}.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.#?&/=]*)/g)) ? (' [' + ime_areas[i].link + (ime_areas[i].title ? '|' + ime_areas[i].title : '') + ']') :(' [[' + ime_areas[i].link + (ime_areas[i].title ? '|' + ime_areas[i].title : '') + ']]')));
+		result.push(ime_areas[i].shape + ' ' + s + (((ime_areas[i].link).match(/(http(s)?.)?\:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&\/=]*)/g)) ? (' [' + ime_areas[i].link + (ime_areas[i].title ? ' ' + ime_areas[i].title : '') + ']') :(' [[' + ime_areas[i].link + (ime_areas[i].title ? '|' + ime_areas[i].title : '') + ']]')));
 	}
 	result.push('');
 	result.push('desc ' + imageDescriptionPos);
