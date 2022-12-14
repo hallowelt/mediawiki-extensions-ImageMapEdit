@@ -32,6 +32,10 @@
 			"scripts": [
 				"ime.js",
 				"ime.rl.js"
+			],
+			"dependencies": [
+				"oojs-ui",
+				"oojs-ui.styles.icons-editing-advanced"
 			]
 		}
 	},
