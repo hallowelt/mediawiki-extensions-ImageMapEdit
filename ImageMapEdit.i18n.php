@@ -3,16 +3,16 @@
  * Internationalisation file for ImageMapEdit
  */
 
-$messages = array();
+$messages = [];
 
-$messages['en'] = array(
+$messages['en'] = [
 	'imagemapedit-extension-description' => 'Create image maps in the browser.'
-);
+];
 
-$messages['de'] = array(
+$messages['de'] = [
 	'imagemapedit-extension-description' => 'Erlaubt das Anlegen von ImageMaps auf Dateibeschreibungsseiten.'
-);
+];
 
-$messages['de-formal'] = array();
+$messages['de-formal'] = [];
 
-$messages['qqq'] = array();
+$messages['qqq'] = [];

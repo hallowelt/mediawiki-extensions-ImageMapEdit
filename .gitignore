@@ -1,4 +1,12 @@
-/nbproject/private/
-## NetBeans
-nbproject*
-project.index
+*~
+*.kate-swp
+*.swp
+/data/
+/config/
+node_modules/**
+vendor/**
+
+composer.lock
+composer.phar
+
+.eslintcache
