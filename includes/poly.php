@@ -28,9 +28,11 @@ for ( $i = 0; $i < count( $coords ); $i += 2 ) {
   }
 }
 
-if ( $maxx > 2000 ) { $maxx = 2000;
+if ( $maxx > 2000 ) {
+  $maxx = 2000;
 }
-if ( $maxy > 2000 ) { $maxy = 2000;
+if ( $maxy > 2000 ) {
+  $maxy = 2000;
 }
 
 // Create image
