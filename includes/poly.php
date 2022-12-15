@@ -22,9 +22,11 @@ $maxy = 1;
 for ( $i = 0; $i < count( $coords ); $i += 2 ) {
   $x = $coords[$i];
   $y = $coords[$i + 1];
-  if ( $x > $maxx ) { $maxx = $x;
+  if ( $x > $maxx ) {
+    $maxx = $x;
   }
-  if ( $y > $maxy ) { $maxy = $y;
+  if ( $y > $maxy ) {
+    $maxy = $y;
   }
 }
 
