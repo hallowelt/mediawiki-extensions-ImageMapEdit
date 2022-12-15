@@ -65,6 +65,7 @@ function ime_htmlNewDiv(id) {
 	return div;
 }
 
+var imeButton = null;
 /*
 	Initialization, part 1: Tries to find image and uses a XMLHttpRequest
 	to download information about the image. When this is done (it's an
@@ -92,20 +93,21 @@ function ime_init1() {
 
 	var url = mw.config.get( 'wgScriptPath' ) + '/api.php?format=xml&action=query&prop=imageinfo&iiprop=size&titles=' + mw.config.get( 'wgPageName' );
 
+	imeButton = new OO.ui.ButtonWidget( {
+		label: 'Image map',
+		icon: 'imageLayoutBasic',
+		disabled: true
+	} );
+	imeButton.on( 'click', ime_init2 );
+	$( '#file' ).append( imeButton.$element );
+
 	$.get(url, function(response) {
 		var iiAttr = response.getElementsByTagName('ii')[0].attributes;
 		ime_width = iiAttr.getNamedItem('width').nodeValue;
 		ime_height = iiAttr.getNamedItem('height').nodeValue;
 
 		ime_scale = img.width/ime_width;
-
-		// Show 'show ImageMapEdit' button now
-		var a = document.createElement('a');
-		a.id = 'imeLink';
-		a.href = 'javascript:ime_init2()';
-		a.style.display = 'block';
-		a.appendChild(document.createTextNode('ImageMapEdit >'));
-		document.getElementById('file').appendChild(a);
+		imeButton.setDisabled( false );
 	});
 }
 
@@ -160,8 +162,7 @@ function ime_init2() {
 	var divIme = ime_htmlNewDiv('ime');
 	divFile.appendChild(divIme);
 
-	// Hide the link now
-	document.getElementById('imeLink').style.display = 'none';
+	imeButton.setDisabled( true );
 
 	// Disable image context menu so right click can be used for events
 	img.oncontextmenu = ime_eventDummy;

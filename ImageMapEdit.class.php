@@ -1,9 +1,9 @@
 <?php
-class ImageMapEdit{
+class ImageMapEdit {
 
 	public static function onOutputPageBeforeHTML( &$oParserOutput, &$sText ) {
 		$oCurrentTitle = $oParserOutput->getTitle();
-		if ( is_null( $oCurrentTitle ) || $oCurrentTitle->getNamespace() != NS_FILE || $oParserOutput->getRequest()->getVal( 'action', 'view' ) != 'view' ) {
+		if ( $oCurrentTitle === null || $oCurrentTitle->getNamespace() != NS_FILE || $oParserOutput->getRequest()->getVal( 'action', 'view' ) != 'view' ) {
 			return true;
 		}
 		$oCurrentFile = wfFindFile( $oCurrentTitle );
@@ -15,8 +15,8 @@ class ImageMapEdit{
 
 	/**
 	 *
-	 * @param OutputPage $oOutputPage
-	 * @param Skin $oSkin
+	 * @param OutputPage &$oOutputPage
+	 * @param Skin &$oSkin
 	 *
 	 * @return bool
 	 */

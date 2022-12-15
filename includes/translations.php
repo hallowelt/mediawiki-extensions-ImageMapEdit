@@ -1,9 +1,10 @@
 <?php
 
-header('Content-type: application/x-javascript; encoding=utf8');
+header( 'Content-type: application/x-javascript; encoding=utf8' );
 
 $lang = $_GET['lang'];
-if (!$lang) $lang = 'en';
+if ( !$lang ) { $lang = 'en';
+}
 
 ?>
 /*
@@ -22,7 +23,7 @@ print "// ImageMapEdit translations for language '$lang'\n";
 print "\n";
 print "var ime_translations = new Array();\n";
 
-if ($lang==='de' || substr($lang, 0, 3)==='de-') {
+if ( $lang === 'de' || substr( $lang, 0, 3 ) === 'de-' ) {
 	?>
 
 ime_translations['error_imagenotfound'] = 'ImageMapEdit: Konnte Bild in der Seitenstruktur nicht finden.';
@@ -72,4 +73,4 @@ ime_translations['error_imagenotfound'] = 'ImageMapEdit: Could not find image in
 
 	<?php
 }
-?>
+
