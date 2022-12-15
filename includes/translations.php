@@ -3,7 +3,8 @@
 header( 'Content-type: application/x-javascript; encoding=utf8' );
 
 $lang = $_GET['lang'];
-if ( !$lang ) { $lang = 'en';
+if ( !$lang ) {
+  $lang = 'en';
 }
 
 ?>
