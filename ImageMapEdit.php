@@ -1,7 +1,6 @@
 <?php
 
 call_user_func(
-
 	static function () {
 		if ( function_exists( 'wfLoadExtension' ) ) {
 			wfLoadExtension( 'ImageMapEdit' );
