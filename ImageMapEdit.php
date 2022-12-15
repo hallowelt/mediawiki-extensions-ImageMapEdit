@@ -1,41 +1,18 @@
 <?php
 
-/**
- * ImageMapEdit
- * Create image maps in the browser.
- * */
-$wgExtensionCredits['parserhook'][] = [
-	'path' => __FILE__,
-	'name' => 'ImageMapEdit',
-	'descriptionmsg' => 'imagemapedit-extension-description',
-	'author' => ['Marc Reymann', 'Peter Schlömer', 'Tobias Weichart' ],
-	'version' => '2.23.2',
-	'license-name' => 'GPL-3.0-only',
-];
-if ( !defined( 'MEDIAWIKI' ) ) {
-	exit;
-}
-
-$wgExtensionMessagesFiles['ImageMapEdit'] = __DIR__ . '/ImageMapEdit.i18n.php';
-
-$wgAutoloadClasses['ImageMapEdit'] = __DIR__ . '/ImageMapEdit.class.php';
-
-$aResourceModuleTemplate = array (
-	'localBasePath' => __DIR__ . '/resources',
-	'remoteExtPath' => 'ImageMapEdit/resources'
+call_user_func(
+	function () {
+		if ( function_exists( 'wfLoadExtension' ) ) {
+			wfLoadExtension( 'ImageMapEdit' );
+			wfWarn(
+				'Deprecated PHP entry point used for ImageMapEdit extension. ' .
+				'Please use wfLoadExtension instead, ' .
+				'see https://www.mediawiki.org/wiki/Extension_registration ' .
+				'for more details.'
+			);
+			return;
+		} else {
+			die( 'This extension requires MediaWiki 1.29+' );
+		}
+	}
 );
-
-$wgResourceModules['ext.imagemapedit'] = array (
-	'scripts' => array (
-		'ime.js',
-		'ime.rl.js'
-	)
-	) + $aResourceModuleTemplate;
-
-unset( $aResoureModuleTemplate );
-
-$GLOBALS['imeFileTypeList'] = [ 'png', 'gif', 'jpg', 'jpeg' ];
-
-$wgHooks['OutputPageBeforeHTML'][] = 'ImageMapEdit::onOutputPageBeforeHTML';
-$wgHooks['BeforePageDisplay'][] = 'ImageMapEdit::onBeforePageDisplay';
-

@@ -1,0 +1,47 @@
+{
+	"name": "ImageMapEdit",
+	"version": "2.23.2",
+	"author": [
+		"Marc Reymann",
+		"Peter Schlömer",
+		"Tobias Weichart",
+		"[https://www.hallowelt.com Hallowelt GmbH]"
+
+	],
+	"descriptionmsg": "imagemapedit-extension-description",
+	"license-name": "GPL-3.0-only",
+	"type": "parserhook",
+	"requires": {
+		"MediaWiki": ">= 1.29.0"
+	},
+	"config_prefix": "ime",
+	"config": {
+		"FileTypeList": {
+			"public": false,
+			"value": [ "png", "gif", "jpg", "jpeg" ]
+		}
+	},
+	"ExtensionMessagesFiles": {
+		"ImageMapEdit": "ImageMapEdit.i18n.php"
+	},
+	"AutoloadClasses": {
+		"ImageMapEdit": "ImageMapEdit.class.php"
+	},
+	"ResourceModules": {
+		"ext.imagemapedit": {
+			"scripts": [
+				"ime.js",
+				"ime.rl.js"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "resources",
+		"remoteExtPath": "ImageMapEdit/resources"
+	},
+	"Hooks": {
+		"OutputPageBeforeHTML": "ImageMapEdit::onOutputPageBeforeHTML",
+		"BeforePageDisplay": "ImageMapEdit::onBeforePageDisplay"
+	},
+	"manifest_version": 2
+}
