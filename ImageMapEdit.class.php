@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 class ImageMapEdit{
 
 	public static function onOutputPageBeforeHTML( &$oParserOutput, &$sText ) {
@@ -6,7 +9,8 @@ class ImageMapEdit{
 		if ( is_null( $oCurrentTitle ) || $oCurrentTitle->getNamespace() != NS_FILE || $oParserOutput->getRequest()->getVal( 'action', 'view' ) != 'view' ) {
 			return true;
 		}
-		$oCurrentFile = wfFindFile( $oCurrentTitle );
+		$repoGroup = MediaWikiServices::getInstance()->getRepoGroup();
+		$oCurrentFile = $repoGroup->findFile( $oCurrentTitle );
 		if ( $oCurrentFile && !$oCurrentFile->canRender() ) {
 			return true;
 		}
@@ -31,7 +35,8 @@ class ImageMapEdit{
 		$titleParts = explode( '.', $title->getText() );
 		$fileType = $titleParts[count( $titleParts ) - 1];
 
-		if ( !$title->userCan( 'edit', $user ) || !in_array( $fileType, $GLOBALS['imeFileTypeList'] ) ) {
+		$userCanEdit = MediaWikiServices::getInstance()->getPermissionManager()->userCan( 'edit', $user, $title );
+		if ( !$userCanEdit || !in_array( $fileType, $GLOBALS['imeFileTypeList'] ) ) {
 			return true;
 		}
 
